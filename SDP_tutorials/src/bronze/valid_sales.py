@@ -34,8 +34,8 @@ def sales_quarantine():
 
 @dp.view
 def valid_sales():
-  return spark.read.table("sales_quarantine").filter("is_quarantined=false")
+  return spark.readStream.table("sales_quarantine").filter("is_quarantined=false")
 
 @dp.view
 def invalid_sales():
-  return spark.read.table("sales_quarantine").filter("is_quarantined=true")
+  return spark.readStream.table("sales_quarantine").filter("is_quarantined=true")

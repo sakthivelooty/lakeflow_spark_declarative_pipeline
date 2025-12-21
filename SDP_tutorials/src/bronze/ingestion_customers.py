@@ -32,8 +32,8 @@ def customers_quarantine():
 
 @dp.view
 def valid_customer():
-  return spark.read.table("customers_quarantine").filter("is_quarantined=false")
+  return spark.readStream.table("customers_quarantine").filter("is_quarantined=false")
 
 @dp.view
 def invalid_customer():
-  return spark.read.table("customers_quarantine").filter("is_quarantined=true")
+  return spark.readStream.table("customers_quarantine").filter("is_quarantined=true")
