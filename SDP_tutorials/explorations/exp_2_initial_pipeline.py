@@ -11,7 +11,7 @@ import pyspark.sql.functions as F
     }
 )
 def bronze_orders():
-    df = spark.readStream.table('sdp_tutorial.source.orders')
+https://dbc-b5b8ef90-5e08.cloud.databricks.com/browse/folders/164129292222102?contextId=pipeline%3A7102e993-83df-4691-abe9-1c1010b914d9&o=7474645257832006$0    df = spark.readStream.table('sdp_tutorial.source.orders')
     return df
 
 # silver layer with mininal filter or cleaning 
