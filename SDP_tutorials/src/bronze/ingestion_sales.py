@@ -26,7 +26,7 @@ def sales_west():
     )
     
 
-@dp.append_flow(target = 'SDP_tutorial.bronze.bronze_region_sales')
+@dp.append_flow(target = 'sdp_tutorial.bronze.bronze_region_sales')
 def sales_east():
     df = spark.readStream.table('sdp_tutorial.source.sales_east')
     
