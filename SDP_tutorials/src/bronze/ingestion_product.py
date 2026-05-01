@@ -12,7 +12,7 @@ quarantine_rules = "NOT({0})".format(" AND ".join(product_expectation_rules.valu
 
 
 @dp.view(
-    name = 'sdp_tutorial.bronze.raw_products'
+    name = 'raw_products'
 )
 def raw_products():
     return spark.readStream.table('sdp_tutorial.source.products')
@@ -25,7 +25,7 @@ def raw_products():
 @dp.expect_all(product_expectation_rules)
 def products_quarantine():
     return (
-        spark.readStream.table('sdp_tutorial.bronze.raw_products')
+        spark.readStream.table('raw_products')
         .withColumn("is_quarantined", F.expr(quarantine_rules))
     )
 

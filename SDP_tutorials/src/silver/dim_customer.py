@@ -10,7 +10,7 @@ dp.create_streaming_table("sdp_tutorial.silver.dim_customer")
 
 dp.create_auto_cdc_flow(
   target = "sdp_tutorial.silver.dim_customer",
-  source = "sdp_tutorial.bronze.valid_customer",
+  source = "valid_customer",
   keys = ["customer_id"],
   sequence_by = "last_updated",
   ignore_null_updates = False,

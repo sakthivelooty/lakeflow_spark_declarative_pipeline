@@ -10,7 +10,7 @@ dp.create_streaming_table("sdp_tutorial.silver.fact_sales")
 
 dp.create_auto_cdc_flow(
   target = "sdp_tutorial.silver.fact_sales",
-  source = "sdp_tutorial.bronze.valid_sales",
+  source = "valid_sales",
   keys = ["sales_id","customer_id","product_id"],
   sequence_by = "sale_timestamp",
   ignore_null_updates = False,
