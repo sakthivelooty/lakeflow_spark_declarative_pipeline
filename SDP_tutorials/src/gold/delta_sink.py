@@ -11,11 +11,11 @@ dp.create_sink(
 
 @dp.append_flow(target = 'region_business_sales')
 def region_business_sales():
-  return spark.readStream.table('sdp_tutorial.sales_dbw.business_sales')
+  return spark.readStream.table('sdp_tutorial.gold.business_sales')
 
 
 @dp.materialized_view(
-  name = 'users_python'
+  name = 'sdp_tutorial.gold.users_python'
 )
 def users_python():
-  return spark.read.table('users')
+  return spark.read.table('sdp_tutorial.silver.users')

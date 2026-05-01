@@ -1,6 +1,6 @@
 -- Please edit the sample below
 
-CREATE MATERIALIZED VIEW users AS
+CREATE MATERIALIZED VIEW sdp_tutorial.silver.users AS
 SELECT
     user_id,
     email,

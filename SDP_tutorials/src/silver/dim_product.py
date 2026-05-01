@@ -6,11 +6,11 @@ from pyspark.sql import functions as F
 # https://docs.databricks.com/aws/en/ldp/developer/ldp-python-ref-apply-changes
 
 # Step1: Create a empty streaming table 
-dp.create_streaming_table("dim_product")
+dp.create_streaming_table("sdp_tutorial.silver.dim_product")
 
 dp.create_auto_cdc_flow(
-  target = "dim_product",
-  source = "valid_products",
+  target = "sdp_tutorial.silver.dim_product",
+  source = "sdp_tutorial.bronze.valid_products",
   keys = ["product_id"],
   sequence_by = "last_updated",
   ignore_null_updates = False,

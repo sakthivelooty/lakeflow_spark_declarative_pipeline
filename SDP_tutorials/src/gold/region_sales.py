@@ -2,7 +2,7 @@ from pyspark import pipelines as dp
 from pyspark.sql import functions as F
 
 @dp.table(
-    name = 'business_sales',
+    name = 'sdp_tutorial.gold.business_sales',
     comment = 'sales of business with region',
     table_properties={
         "pipelines.autoOptimize.managed": "true",
@@ -11,9 +11,9 @@ from pyspark.sql import functions as F
 )
 def business_sales():
 
-    df_fact_sales = spark.read.table('fact_sales')
-    df_dim_product = spark.read.table('dim_product')
-    df_dim_customer = spark.read.table('dim_customer')
+    df_fact_sales = spark.read.table('sdp_tutorial.silver.fact_sales')
+    df_dim_product = spark.read.table('sdp_tutorial.silver.dim_product')
+    df_dim_customer = spark.read.table('sdp_tutorial.silver.dim_customer')
 
     df_join  = (df_fact_sales
                 .join(

@@ -7,10 +7,10 @@ from pyspark.sql import functions as F
 # Create a empty streaming table 
 
 # dp.create_streaming_table("bronze_region_sales", expect_all=sales_expectation_rules)
-dp.create_streaming_table("bronze_region_sales")
+dp.create_streaming_table("sdp_tutorial.bronze.bronze_region_sales")
 
 # create a append flow, that loads the data into the target
-@dp.append_flow(target = 'bronze_region_sales')
+@dp.append_flow(target = 'sdp_tutorial.bronze.bronze_region_sales')
 def sales_west():
     df = spark.readStream.table('sdp_tutorial.source.sales_west')
 
@@ -26,7 +26,7 @@ def sales_west():
     )
     
 
-@dp.append_flow(target = 'bronze_region_sales')
+@dp.append_flow(target = 'SDP_tutorial.bronze.bronze_region_sales')
 def sales_east():
     df = spark.readStream.table('sdp_tutorial.source.sales_east')
     
